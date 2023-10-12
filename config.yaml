@@ -1,6 +1,10 @@
 database:
   dbPort: 5432
-  dbHost: 192.168.250.21
+  dbHost: 127.0.0.1
   dbName: avreaderdb
   dbUser: avreader
   dbPassword: qweasdzxc123
+sql:
+  select1: "SELECT \"id\" FROM public.video_record ORDER BY id DESC LIMIT 1"
+  select2: ""
+  select3: ""
