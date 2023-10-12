@@ -1,17 +1,24 @@
 package database
 
-// type connect struct {
-// 	pool *pgxpool.Pool
-// }
+import (
+	"context"
 
-// func NewDb(ctx context.Context, cfg *config.Worker) (Connect, *pgxpool.Pool, error) {
+	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/mstee1/universal_select/internal/config"
+)
 
-// 	pool, err := DbConnect(ctx, cfg)
-// 	if err != nil {
-// 		return nil, nil, err
-// 	}
+type connect struct {
+	pool *pgxpool.Pool
+}
 
-// 	return &connect{
-// 		pool: pool,
-// 	}, pool, nil
-// }
+func NewDb(ctx context.Context, cfg *config.Config) (Connect, *pgxpool.Pool, error) {
+
+	pool, err := DbConnect(ctx, cfg)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	return &connect{
+		pool: pool,
+	}, pool, nil
+}
