@@ -1,8 +1,10 @@
 package psql
 
-import "context"
+import (
+	"context"
+)
 
-func (r *req) SelectData(ctx context.Context, query string) ([]interface{}, error) {
+func (r *req) SelectData(ctx context.Context, query string) ([][]interface{}, error) {
 
 	if ctx.Err() != nil {
 		return nil, ctx.Err()
@@ -14,7 +16,7 @@ func (r *req) SelectData(ctx context.Context, query string) ([]interface{}, erro
 	}
 	defer rows.Close()
 
-	var result []interface{}
+	var result [][]interface{}
 
 	for rows.Next() {
 		line := make([]interface{}, len(rows.FieldDescriptions()))
@@ -25,6 +27,10 @@ func (r *req) SelectData(ctx context.Context, query string) ([]interface{}, erro
 
 		if err := rows.Scan(line...); err != nil {
 			return nil, err
+		}
+
+		for i, col := range line {
+			line[i] = *col.(*interface{})
 		}
 
 		result = append(result, line)

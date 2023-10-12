@@ -6,5 +6,6 @@ database:
   dbPassword: qweasdzxc123
 sql:
   select1: "SELECT \"id\" FROM public.video_record ORDER BY id DESC LIMIT 1"
-  select2: ""
-  select3: ""
+  select2: "SELECT \"id\", \"code_mp_cam\" FROM public.video_record ORDER BY id DESC LIMIT 1"
+  select3: "SELECT \"id\", \"code_mp_cam\", \"date_time_end\" FROM public.video_record ORDER BY id DESC LIMIT 1"
+  select4: "SELECT \"id\", \"code_mp_cam\", \"date_time_end\" FROM public.video_record ORDER BY id DESC LIMIT 5"

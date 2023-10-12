@@ -18,4 +18,5 @@ type Sql struct {
 	Select1 string `mapstructure:"select1"`
 	Select2 string `mapstructure:"select2"`
 	Select3 string `mapstructure:"select3"`
+	Select4 string `mapstructure:"select4"`
 }

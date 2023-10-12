@@ -6,14 +6,14 @@ import (
 )
 
 type req struct {
-	cfg  *config.Config
+	// cfg  *config.Config
 	pool *pgxpool.Pool
 }
 
 func NewReq(cfg *config.Config, pool *pgxpool.Pool) (Requests, error) {
 
 	return &req{
-		cfg:  cfg,
+		// cfg:  cfg,
 		pool: pool,
 	}, nil
 }

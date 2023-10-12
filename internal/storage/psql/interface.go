@@ -1,3 +1,7 @@
 package psql
 
-type Requests interface{}
+import "context"
+
+type Requests interface {
+	SelectData(ctx context.Context, query string) ([][]interface{}, error)
+}
