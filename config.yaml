@@ -1,0 +1,6 @@
+database:
+  dbPort: 5432
+  dbHost: 192.168.250.21
+  dbName: avreaderdb
+  dbUser: avreader
+  dbPassword: qweasdzxc123
