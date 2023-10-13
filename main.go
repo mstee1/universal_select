@@ -34,7 +34,7 @@ func main() {
 	}
 	defer conn.CloseDb()
 
-	req, err := psql.NewReq(cfg, pool)
+	req, err := psql.NewReq(pool)
 	if err != nil {
 		fmt.Println(err)
 		return
